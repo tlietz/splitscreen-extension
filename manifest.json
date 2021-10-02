@@ -3,9 +3,7 @@
     "description": "Split webpages into minimalistic popup windows.",
     "version": "0.1",
     "manifest_version": 3,
-    "background": {
-        "service_worker": "background.js"
-    },
+    "background": { "service_worker": "background.js", "type": "module" },
     "permissions": ["storage", "tabs", "activeTab", "contextMenus"],
     "host_permissions": ["<all_urls>"],
     "action": {
