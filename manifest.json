@@ -6,11 +6,11 @@
     "background": {
         "service_worker": "background.js"
     },
-    "permissions": ["storage"],
+    "permissions": ["storage", "tabs", "activeTab"],
     "host_permissions": ["<all_urls>"],
     "action": {
         "default_popup": "popup.html",
-        "default_title": "<hotkey1> -> vertical split \n <hotkey2> -> horizontal split \n <hotkey3> -> 4-way split",
+        "default_title": "<hotkey1> -> vertical split\n<hotkey2> -> horizontal split\n<hotkey3> -> 4-way split",
         "default_icon": {
             "16": "/images/get_started16.png",
             "32": "/images/get_started32.png",
