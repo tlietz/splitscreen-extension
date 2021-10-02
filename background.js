@@ -2,11 +2,11 @@ import { createPopupFromActiveTab } from "./splitFunctions.js";
 
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
-        id: "delete-related-popups",
-        title: "Delete Related Popups",
+        id: "create-popup",
+        title: "Create Popup",
         contexts: ["all"],
     });
 });
 chrome.contextMenus.onClicked.addListener(async () => {
-    // deleteRelatedPopups();
+    createPopupFromActiveTab();
 });
