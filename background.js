@@ -11,6 +11,11 @@ chrome.runtime.onInstalled.addListener(() => {
         title: "Convert Normal/Popup",
         contexts: ["all"],
     });
+    chrome.contextMenus.create({
+        id: "popup-from-link",
+        title: "Create Popup From Link",
+        contexts: ["link"],
+    });
 });
 
 chrome.contextMenus.onClicked.addListener(async (menuItemId) => {
@@ -19,6 +24,7 @@ chrome.contextMenus.onClicked.addListener(async (menuItemId) => {
         createPopupFromActiveTab();
     } else if (id === "convert") {
         convertWindow();
+    } else if (id === "popup-from-link") {
     }
 });
 
