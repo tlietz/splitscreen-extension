@@ -1,4 +1,4 @@
-import { createPopupFromActiveTab } from "./splitFunctions.js";
+import { createPopupFromActiveTab, convertWindow } from "./utils/functions.js";
 
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
@@ -6,9 +6,20 @@ chrome.runtime.onInstalled.addListener(() => {
         title: "Create Popup",
         contexts: ["all"],
     });
+    chrome.contextMenus.create({
+        id: "convert",
+        title: "Convert Normal/Popup",
+        contexts: ["all"],
+    });
 });
-chrome.contextMenus.onClicked.addListener(async () => {
-    createPopupFromActiveTab();
+
+chrome.contextMenus.onClicked.addListener(async (menuItemId) => {
+    const id = menuItemId.menuItemId;
+    if (id === "create-popup") {
+        createPopupFromActiveTab();
+    } else if (id === "convert") {
+        convertWindow();
+    }
 });
 
 chrome.action.onClicked.addListener(async () => {
