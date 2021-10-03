@@ -1,12 +1,19 @@
 {
     "name": "Split Tabs to Popups",
-    "description": "Create minimalistic popup windows and have a less cluttered split screen",
+    "description": "Create minimalistic popup windows, perfect for a less cluttered screen",
     "version": "0.1",
     "manifest_version": 3,
     "background": { "service_worker": "background.js", "type": "module" },
-    "permissions": ["storage", "tabs", "activeTab", "contextMenus"],
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "contextMenus",
+        "scripting"
+    ],
     "host_permissions": ["<all_urls>"],
     "action": {
+        "default_title": "<Alt + Shift + a> = Create Popup\n<Alt + Shift + s> = Convert window/popup",
         "default_icon": {
             "16": "/images/get_started16.png",
             "32": "/images/get_started32.png",

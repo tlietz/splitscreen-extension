@@ -10,3 +10,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener(async () => {
     createPopupFromActiveTab();
 });
+
+chrome.action.onClicked.addListener(async () => {
+    createPopupFromActiveTab();
+});
