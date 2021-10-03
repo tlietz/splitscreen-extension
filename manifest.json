@@ -7,7 +7,7 @@
     "permissions": ["tabs", "activeTab", "contextMenus"],
     "host_permissions": ["<all_urls>"],
     "action": {
-        "default_title": "<Alt + Shift + a> = Create Popup\n<Alt + Shift + s> = Convert normal/popup",
+        "default_title": "<Alt + Shift + A> = Create Popup\n<Alt + Shift + S> = Convert normal/popup",
         "default_icon": {
             "16": "/images/get_started16.png",
             "32": "/images/get_started32.png",
@@ -15,7 +15,16 @@
             "128": "/images/get_started128.png"
         }
     },
-    "commands": {},
+    "commands": {
+        "create-popup-command": {
+            "suggested_key": "Alt+Shift+A",
+            "description": "Creates a new popup from the active page"
+        },
+        "convert-command": {
+            "suggested_key": "Alt+Shift+S",
+            "description": "Replaces the active page with a popup"
+        }
+    },
     "icons": {
         "16": "/images/get_started16.png",
         "32": "/images/get_started32.png",
