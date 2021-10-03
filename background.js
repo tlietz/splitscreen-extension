@@ -1,4 +1,4 @@
-import { convertWindow, createPopupFromUrl } from "./utils/functions.js";
+import { convertWindow, createPopupFromActiveTab } from "./utils/functions.js";
 
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
@@ -21,18 +21,22 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener(async (onClickData) => {
     const id = onClickData.menuItemId;
     if (id === "create-popup") {
-        createPopupFromUrl(onClickData.pageUrl);
+        createPopupFromActiveTab();
     } else if (id === "convert") {
         convertWindow();
     } else if (id === "popup-from-link") {
-        createPopupFromUrl(onClickData.linkUrl);
+        createPopupFromActiveTab();
     }
 });
 
-chrome.commands.onCommand.addListener((command) => {
-    console.log(`Command "${command}" triggered`);
+chrome.commands.onCommand.addListener(async (command) => {
+    if (command === "create-popup-command") {
+        createPopupFromActiveTab();
+    } else if (command === "convert-command") {
+        convertWindow();
+    }
 });
 
 chrome.action.onClicked.addListener(async (tab) => {
-    createPopupFromUrl(tab.url);
+    createPopupFromActiveTab();
 });

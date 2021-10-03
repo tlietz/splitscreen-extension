@@ -1,17 +1,5 @@
 // Functions related to creating new popups from tabs
 
-// Creates a popup given a url
-export const createPopupFromUrl = async function (linkUrl) {
-    const currentWindow = await chrome.windows.getCurrent();
-
-    //create window of type popup with same incognito state
-    await chrome.windows.create({
-        url: linkUrl,
-        type: "popup",
-        incognito: currentWindow.incognito,
-    });
-};
-
 // Helper function to get the URL of the active tab
 const getActiveTab = async function () {
     //get active tab in current window
@@ -55,4 +43,15 @@ export const convertWindow = async function () {
         //put deleting window at the end for a cooler looking transition
         await chrome.windows.remove(currentWindow.id);
     }
+};
+
+export const createPopupFromActiveTab = async function () {
+    const activeTab = await getActiveTab();
+    const currentWindow = await chrome.windows.getCurrent();
+
+    await chrome.windows.create({
+        url: activeTab.url,
+        type: "popup",
+        incognito: currentWindow.incognito,
+    });
 };
