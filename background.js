@@ -8,12 +8,12 @@ chrome.runtime.onInstalled.addListener(() => {
     });
     chrome.contextMenus.create({
         id: "create-popup",
-        title: "Popup From Page",
+        title: "<Ctrl+Shift+X> Popup From Page",
         contexts: ["all"],
     });
     chrome.contextMenus.create({
         id: "convert",
-        title: "Convert Normal/Popup",
+        title: "<Ctrl+Shift+S> Convert Normal/Popup",
         contexts: ["all"],
     });
 });
