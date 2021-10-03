@@ -29,6 +29,10 @@ chrome.contextMenus.onClicked.addListener(async (onClickData) => {
     }
 });
 
+chrome.commands.onCommand.addListener((command) => {
+    console.log(`Command "${command}" triggered`);
+});
+
 chrome.action.onClicked.addListener(async (tab) => {
-    ceatePopupFromUrl(tab.url);
+    createPopupFromUrl(tab.url);
 });
